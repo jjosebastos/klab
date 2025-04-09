@@ -1,54 +1,19 @@
 package org.com.klab.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import lombok.Data;
 
-@Table
-@Entity(name = "produto")
+@Entity
+@Data
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProduto;
+    @NotBlank(message = "campo obrigatório")
     private String descricao;
+    @Positive(message = "maior que zero")
     private Double preco;
 
-    public Produto() {}
-
-    public Produto(Long idProduto, String descricao, Double preco) {
-        this.idProduto = idProduto;
-        this.descricao = descricao;
-        this.preco = preco;
-    }
-
-    public Long getIdProduto() {
-        return idProduto;
-    }
-
-    public void setIdProduto(Long idProduto) {
-        this.idProduto = idProduto;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
-    }
-
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "idProduto=" + idProduto +
-                ", descricao='" + descricao + '\'' +
-                ", preco=" + preco +
-                '}';
-    }
 }

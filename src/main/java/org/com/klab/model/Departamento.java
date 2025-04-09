@@ -1,55 +1,21 @@
 package org.com.klab.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
 @Table
-@Entity(name = "departamento")
+@Entity
+@Data
 public class Departamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDepartamento;
+    @NotBlank(message = "descrição não pode ser vazia")
     private String descricao;
+    @NotNull(message = "o id do produto não pode ser nulo")
     private Long idProduto;
 
-    public Departamento() {}
-
-    public Departamento(Long idDepartamento, String descricao, Long idProduto) {
-        this.idDepartamento = idDepartamento;
-        this.descricao = descricao;
-        this.idProduto = idProduto;
-    }
-
-    public Long getIdDepartamento() {
-        return idDepartamento;
-    }
-
-    public void setIdDepartamento(Long idDepartamento) {
-        this.idDepartamento = idDepartamento;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Long getIdProduto() {
-        return idProduto;
-    }
-
-    public void setIdProduto(Long idProduto) {
-        this.idProduto = idProduto;
-    }
-
-    @Override
-    public String toString() {
-        return "Departamento{" +
-                "idDepartamento=" + idDepartamento +
-                ", descricao='" + descricao + '\'' +
-                ", idProduto=" + idProduto +
-                '}';
-    }
 }

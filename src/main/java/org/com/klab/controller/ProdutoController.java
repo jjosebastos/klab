@@ -14,11 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/produto")
 public class ProdutoController {
-    private final ProdutoRepository produtoRepository;
-
-    public ProdutoController(ProdutoRepository produtoRepository) {
-        this.produtoRepository = produtoRepository;
-    }
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
     @GetMapping("/all")
     public ResponseEntity<?> findAll() {
