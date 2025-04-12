@@ -3,13 +3,17 @@ package org.com.klab.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Pedido {
 
     @Id
@@ -17,27 +21,7 @@ public class Pedido {
     private Long idPedido;
     @PastOrPresent
     private LocalDate dataPedido;
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<PedidoProduto> produtos;
 
-    public Pedido() {}
-
-    public Pedido(Long idPedido, LocalDate dataPedido) {
-        this.idPedido = idPedido;
-        this.dataPedido = dataPedido;
-    }
-
-    public void setIdPedido(Long idPedido) {
-        this.idPedido = idPedido;
-    }
-
-    public void setDataPedido(LocalDate dataPedido) {
-        this.dataPedido = dataPedido;
-    }
-
-    @Override
-    public String toString() {
-        return "Pedido{" +
-                "idPedido=" + idPedido +
-                ", dataPedido=" + dataPedido +
-                '}';
-    }
 }
