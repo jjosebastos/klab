@@ -1,5 +1,6 @@
 package org.com.klab.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -22,6 +23,7 @@ public class Pedido {
     @PastOrPresent
     private LocalDate dataPedido;
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    @JsonManagedReference("produtoPedido")
     private List<PedidoProduto> produtos;
 
 }
