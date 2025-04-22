@@ -9,8 +9,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class PedidoDto {
-    @JsonProperty("idProduto")
-    private Long id;
+    @JsonProperty("idPedido")
+    private Long idPedido;
     @JsonProperty("dataPedido")
     private LocalDate dataPedido;
 }

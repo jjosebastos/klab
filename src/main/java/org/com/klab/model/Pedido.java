@@ -2,13 +2,10 @@ package org.com.klab.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.*;
-
 import java.time.LocalDate;
 import java.util.List;
-
 
 @Entity
 @Data
@@ -22,8 +19,8 @@ public class Pedido {
     private Long idPedido;
     @PastOrPresent
     private LocalDate dataPedido;
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
-    @JsonManagedReference("produtoPedido")
+    @OneToMany(mappedBy = "pedido", fetch = FetchType.LAZY)
+    @JsonManagedReference("pedido-pedidoproduto")
     private List<PedidoProduto> produtos;
 
 }

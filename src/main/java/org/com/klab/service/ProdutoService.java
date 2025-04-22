@@ -8,4 +8,5 @@ public interface ProdutoService{
 
     List<Produto> save(List<Produto> produtosList);
     Produto findProdutoById(Long id);
+    Iterable<Produto> findAll();
 }

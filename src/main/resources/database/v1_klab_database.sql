@@ -10,11 +10,7 @@ CREATE TABLE DEPARTAMENTO (
                               idDepartamento INTEGER
                                   GENERATED ALWAYS AS IDENTITY
                                   PRIMARY KEY,
-                              descricao VARCHAR(50),
-                              idProduto INTEGER,
-                              CONSTRAINT FK_PRO_DEP
-                                  FOREIGN KEY (idProduto)
-                                      REFERENCES PRODUTO(idProduto)
+                              descricao VARCHAR(50)
 )
 
 CREATE TABLE PEDIDO (

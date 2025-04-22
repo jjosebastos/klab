@@ -32,7 +32,7 @@ public class ProdutoController {
     }
     @GetMapping
     public ResponseEntity<List<Produto>> getAll(){
-        return null;
+        return ResponseEntity.ok((List<Produto>) this.produtoService.findAll());
     }
 
 }

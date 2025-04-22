@@ -34,7 +34,12 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
     public Produto findProdutoById(Long id) {
-        return produtoRepository.findProdutoById(id);
+        return produtoRepository.findProdutoByIdProduto(id);
+    }
+
+    @Override
+    public List<Produto> findAll() {
+        return this.produtoRepository.findAll();
     }
 
 
